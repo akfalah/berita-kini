@@ -23,7 +23,7 @@ const NewsLayout = ({
 
   return (
     <section className="w-full flex flex-col space-y-11 animate-fade-in">
-      <div className="flex justify-between items-center">
+      <div className="w-full flex flex-col md:flex-row md:justify-between lg:items-center gap-3">
         <Header title={category} />
 
         {setSearchQuery && (
@@ -67,10 +67,10 @@ const NewsLayout = ({
         )}
       </div>
 
-      <div className="flex flex-col items-center space-y-16">
+      <div className="flex flex-col items-center space-y-8 lg:space-y-16">
         {isLoading && <Loader />}
         
-        <div className="grid grid-cols-4 grid-rows-2 gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-8 lg:gap-16">
           {currentItems.map((item, index) => (
             <Card key={index} item={{ ...item, category: item.category }} />
           ))}
@@ -81,6 +81,7 @@ const NewsLayout = ({
           totalPages={Math.ceil(totalItems / itemsPerPage)}
           totalItems={totalItems}
           onPageChange={onPageChange}
+          itemsPerPage={itemsPerPage}
         />
       </div>
     </section>

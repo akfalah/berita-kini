@@ -150,6 +150,20 @@ export default {
             fontWeight: "500",
           },
         ],
+        "body-xs-semibold": [
+          "14px",
+          {
+            lineHeight: "22px",
+            fontWeight: "600",
+          },
+        ],
+        "body-xs-bold": [
+          "14px",
+          {
+            lineHeight: "22px",
+            fontWeight: "700",
+          },
+        ],
       },
       colors: {
         primary: {
@@ -203,11 +217,16 @@ export default {
       },
       animation: {
         "fade-in": "fadeIn 1.5s ease-in",
+        slide: "slide 0.5s ease-in",
       },
       keyframes: {
         fadeIn: {
           from: {opacity: 0},
           to: {opacity: 1},
+        },
+        slide: {
+          from: {transform: "translateX(100%)"},
+          to: {transform: "translateX(-5%)"},
         },
       }
     },

@@ -3,20 +3,20 @@ import routes from "../../../Routes/Routes";
 
 const Footer = () => {
   return (
-    <footer className="w-screen px-16 py-[72px] flex space-x-[72px] bg-dark-600">
-      <section className="min-w-[425px] flex flex-col space-y-12">
-        <div className="flex flex-col space-y-[22px]">
-          <div className="flex items-center space-x-5">
+    <footer className="w-full p-8 lg:px-16 lg:py-[72px] flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-[72px] bg-dark-600">
+      <section className="lg:min-w-[425px] flex flex-col space-y-4 lg:space-y-12">
+        <div className="flex flex-col space-y-2.5 lg:space-y-[22px]">
+          <div className="flex items-center space-x-4  lg:space-x-5">
             <svg
               width="68"
               height="69"
               viewBox="0 0 68 69"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="w-10 h-10 lg:w-fit lg:h-fit"
             >
               <mask
                 id="mask0_5001_29980"
-                // maskType="luminance"
                 maskUnits="userSpaceOnUse"
                 x="0"
                 y="0"
@@ -33,22 +33,22 @@ const Footer = () => {
               </g>
             </svg>
 
-            <span className="font-poppins text-3xl font-semibold text-white">
+            <span className="font-poppins text-xl lg:text-3xl font-semibold text-white">
               Berita Kini
             </span>
           </div>
 
-          <span className="font-nunito-sans text-body-lg text-white">
+          <span className="font-nunito-sans text-body-sm lg:text-body-lg text-white">
             © 2023 Berita Kini. All Rights Reserved.
           </span>
         </div>
 
-        <div className="flex flex-col space-y-[22px]">
-          <span className="font-nunito-sans text-[22px] font-semibold text-white">
+        <div className="flex flex-col space-y-2.5 lg:space-y-[22px]">
+          <span className="font-nunito-sans text-lg lg:text-lg lg:text-[22px] font-semibold text-white">
             Ikuti Kami
           </span>
 
-          <div className="flex space-x-6">
+          <div className="flex items-center space-x-4 lg:space-x-6">
             <a
               href="https://www.youtube.com/"
               target="_blank"
@@ -148,12 +148,12 @@ const Footer = () => {
         </div>
       </section>
 
-      <section className="w-full flex flex-col space-y-[22px]">
-        <span className="font-nunito-sans text-[22px] font-semibold text-white">
+      <section className="w-full flex flex-col space-y-2.5 lg:space-y-[22px]">
+        <span className="font-nunito-sans text-lg lg:text-[22px] font-semibold text-white">
           Telusuri
         </span>
 
-        <div className="flex flex-col space-y-4 text-body-md-medium text-white">
+        <div className="flex flex-col space-y-1.5 lf:space-y-4 text-body-sm-medium text-white">
           {routes.map((route, index) => (
             route.path === "/berita-kini/post/:title" ? null :
             <Link key={index} to={route.path}>
@@ -163,8 +163,8 @@ const Footer = () => {
         </div>
       </section>
 
-      <section className="w-full flex flex-col space-y-[22px]">
-        <span className="font-nunito-sans text-[22px] font-semibold text-white">
+      <section className="w-full flex flex-col space-y-2.5 lg:space-y-[22px]">
+        <span className="font-nunito-sans text-lg lg:text-[22px] font-semibold text-white">
           Bantuan
         </span>
 
@@ -175,8 +175,8 @@ const Footer = () => {
         </ul>
       </section>
 
-      <section className="min-w-[339px]flex flex-col space-y-[22px]">
-        <span className="font-nunito-sans text-[22px] font-semibold text-white">
+      <section className="min-w-[339px]flex flex-col space-y-2.5 lg:space-y-[22px]">
+        <span className="font-nunito-sans text-lg lg:text-[22px] font-semibold text-white">
           Berlangganan Berita Baru
         </span>
 

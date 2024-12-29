@@ -11,7 +11,7 @@ const Breadcrumb = ({ category }) => {
   }
 
   return (
-    <section className="w-full flex items-center space-x-3 text-body-lg text-[#333333]">
+    <section className="w-full flex items-center space-x-3 text-body-sm md:text-body-md lg:text-body-lg text-[#333333]">
       <svg
         width="16"
         height="16"

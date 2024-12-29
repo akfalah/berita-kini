@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import routes from "../../../Routes/Routes";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -20,43 +21,20 @@ const Navbar = () => {
     };
   }, []);
 
-  const menu = routes.map((route, index) => (
-    route.path === "/berita-kini/post/:title" ? null :
-    <NavLink
-      key={index}
-      to={route.path}
-      end={route.path === "/berita-kini/"}
-      className={({ isActive }) =>
-        `${
-          isActive
-            ? `text-body-md-semibold ${
-                isScrolled ? "text-white" : "text-primary-500"
-              }`
-            : `text-body-md-medium ${
-                isScrolled
-                  ? "text-[#F2F2F2] hover:text-white"
-                  : "text-[#828282] hover:text-primary-500"
-              }`
-        } transition-all duration-300 ease-out`
-      }
-    >
-      {route.name}
-    </NavLink>
-  ));
-
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 w-full px-[72px] py-8 flex justify-between items-center transition-all duration-300 ease-out ${
+      className={`fixed top-0 left-0 z-50 w-full box-border px-8 lg:px-[72px] py-8 flex justify-between items-center transition-all ease-out duration-300 ${
         isScrolled ? "bg-primary-500" : "bg-white border-b border-[#F2F2F2]"
       }`}
     >
-      <div className="flex items-center space-x-3">
+      <NavLink to={"/berita-kini/"} className="flex items-center space-x-3">
         <svg
           width="44"
           height="44"
           viewBox="0 0 44 44"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8 lg:w-fit lg:h-fit"
         >
           <mask
             id="mask0_5001_28660"
@@ -83,9 +61,78 @@ const Navbar = () => {
         >
           Berita Kini
         </span>
-      </div>
+      </NavLink>
 
-      <section className="space-x-8">{menu}</section>
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className={`w-8 h-8 p-2 flex lg:hidden flex-col justify-center items-center space-y-0.5 active:bg-slate-300 rounded *:block *:h-0.5 *:w-4 *:rounded *:transition-all *:duration-300 ${
+          isScrolled ? "*:bg-white" : "*:bg-black"
+        }`}
+      >
+        <span
+          className={`${
+            menuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+          }`}
+        />
+
+        <span className={`${menuOpen ? "opacity-0" : "opacity-100"}`} />
+
+        <span
+          className={`${
+            menuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+          }`}
+        />
+      </button>
+
+      {menuOpen && (
+        <div className="absolute top-[96px] right-0 w-2/3 md:w-2/5 h-screen px-8 py-6 flex flex-col space-y-4 font-medium bg-white shadow-md transform transition-all duration-300 ease-out animate-slide">
+          {routes.map((route, index) =>
+            route.path === "/berita-kini/post/:title" ? null : (
+              <NavLink
+                key={index}
+                to={route.path}
+                end={route.path === "/berita-kini/"}
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "text-body-md-semibold text-primary-500"
+                      : "text-body-md-medium text-[#828282]"
+                  } transition-all duration-300 ease-out`
+                }
+              >
+                {route.name}
+              </NavLink>
+            )
+          )}
+        </div>
+      )}
+
+      <section className="hidden lg:flex items-center space-x-8">
+        {routes.map((route, index) =>
+          route.path === "/berita-kini/post/:title" ? null : (
+            <NavLink
+              key={index}
+              to={route.path}
+              end={route.path === "/berita-kini/"}
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? `text-body-md-semibold ${
+                        isScrolled ? "text-white" : "text-primary-500"
+                      }`
+                    : `text-body-md-medium ${
+                        isScrolled
+                          ? "text-[#F2F2F2] hover:text-white"
+                          : "text-[#828282] hover:text-primary-500"
+                      }`
+                } transition-all duration-300 ease-out`
+              }
+            >
+              {route.name}
+            </NavLink>
+          )
+        )}
+      </section>
     </nav>
   );
 };

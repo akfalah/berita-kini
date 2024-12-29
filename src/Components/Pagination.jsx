@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
+const Pagination = ({ currentPage, totalPages, totalItems, onPageChange, itemsPerPage }) => {
   const getPageNumbers = () => {
     const pages = [];
 
@@ -8,35 +8,31 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
-
     } else {
-      if (currentPage <= 3 || currentPage >= totalPages - 2) {
-        pages.push(1, 2, 3, "...", totalPages - 2, totalPages - 1, totalPages);
+      if (currentPage < 3 || currentPage >= totalPages - 2) {
+        pages.push(1, 2, "...", totalPages - 1, totalPages);
       } else {
         pages.push(
           1,
           "...",
-          currentPage - 1,
           currentPage,
-          currentPage + 1,
           "...",
           totalPages
         );
       }
     }
-    
+
     return pages;
   };
 
   return (
-    <div className="w-full px-4 py-[12.5px]">
-      <div className="w-full flex justify-between items-center">
-        <span className="text-body-md text-[#333333]">
-          Showing {(currentPage - 1) * 8 + 1} to{" "}
-          {Math.min(currentPage * 8, totalItems)} of {totalItems} results
+      <div className="w-full flex flex-col md:flex-row md:justify-between items-center gap-4">
+        <span className="order-2 md:order-1 text-body-md text-[#333333]">
+          Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
+          {Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems} results
         </span>
 
-        <div className="flex items-center space-x-5">
+        <div className="order-1 md:order-2 flex items-center space-x-5">
           <button
             className={`flex items-center space-x-[6px] ${
               currentPage === 1 && "cursor-not-allowed"
@@ -50,6 +46,7 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
               viewBox="0 0 16 17"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
             >
               <path
                 fillRule="evenodd"
@@ -59,13 +56,15 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
               />
             </svg>
 
-            <span className="text-body-md text-[#526071] hover:font-bold transition-all ease-out duration-300">Previous</span>
+            <span className="hidden lg:inline text-body-md text-[#526071] hover:font-bold transition-all ease-out duration-300">
+              Previous
+            </span>
           </button>
 
           {getPageNumbers().map((page, index) => (
             <button
               key={index}
-              className={`w-10 h-10 text-body-md-medium ${
+              className={`w-8 h-8 text-body-md-medium ${
                 page === currentPage
                   ? "bg-primary-500 text-white"
                   : `bg-transparent text-[#526071] ${
@@ -82,13 +81,14 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
 
           <button
             className={`flex items-center space-x-[6px] ${
-              currentPage === totalPages &&
-              "filter grayscale cursor-not-allowed"
+              currentPage === totalPages && "cursor-not-allowed"
             }`}
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
-            <span className="text-body-md text-[#526071] hover:font-bold transition-all ease-out duration-300">Next</span>
+            <span className="hidden lg:inline text-body-md text-[#526071] hover:font-bold transition-all ease-out duration-300">
+              Next
+            </span>
 
             <svg
               width="16"
@@ -96,6 +96,7 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
               viewBox="0 0 16 17"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
             >
               <path
                 fillRule="evenodd"
@@ -107,7 +108,6 @@ const Pagination = ({ currentPage, totalPages, totalItems, onPageChange }) => {
           </button>
         </div>
       </div>
-    </div>
   );
 };
 
@@ -116,6 +116,7 @@ Pagination.propTypes = {
   totalPages: PropTypes.number.isRequired,
   totalItems: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
 };
 
 export default Pagination;

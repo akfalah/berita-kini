@@ -63,22 +63,26 @@ const Headline = () => {
   )[0];
 
   return (
-    <section className="w-full h-[492.43px] flex flex-col justify-center items-center space-y-11 animate-fade-in">
+    <section className="w-full lg:h-[492.43px] flex flex-col justify-center items-center space-y-11 animate-fade-in">
       {isLoading && <Loader />}
 
       {currentItem && (
         <>
-          <figure className="w-full flex justify-between">
-            <figcaption className="w-[505px] flex flex-col space-y-4">
-              <span className="text-body-md-semibold text-[#526071]">
+          <figure className="w-full flex flex-col lg:flex-row justify-center lg:justify-between gap-5 lg:gap-0">
+            <span className="inline lg:hidden text-body-md-semibold text-[#526071]">
+              Headline
+            </span>
+            
+            <figcaption className="order-2 lg:order-1 lg:w-[505px] flex flex-col space-y-2 lg:space-y-4">
+              <span className="hidden lg:inline text-body-md-semibold text-[#526071]">
                 Headline
               </span>
 
-              <h1 className="font-nunito-sans text-4xl font-bold text-[#333333] leading-[46px]">
+              <h1 className="font-nunito-sans text-2xl lg:text-4xl font-bold text-[#333333] lg:leading-[46px]">
                 {currentItem.title}
               </h1>
 
-              <p className="text-body-md text-[#4F4F4F]">
+              <p className="h-[100px] text-body-md text-[#4F4F4F] line-clamp-5">
                 {currentItem.description}
               </p>
 
@@ -117,7 +121,11 @@ const Headline = () => {
                 </span>
               </div>
 
-              <Link to={`/berita-kini/post/${encodeURIComponent(currentItem.title)}`}>
+              <Link
+                to={`/berita-kini/post/${encodeURIComponent(
+                  currentItem.title
+                )}`}
+              >
                 <button className="flex items-center space-x-2 transition-all ease-out duration-300">
                   <span className="text-body-md-medium text-primary-500 hover:font-bold">
                     Baca Selengkapnya
@@ -144,7 +152,7 @@ const Headline = () => {
             <img
               src={currentItem.thumbnail}
               alt="headline-thumbnail"
-              className="w-[637px] h-[417px] object-center object-cover rounded-[20px]"
+              className="order-1 w-full lg:w-[637px] h-full lg:h-[417px] object-center object-cover rounded-[20px]"
             />
           </figure>
 

@@ -10,7 +10,7 @@ const CategoryNews = ({ category }) => {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
-  const itemsPerPage = 16;
+  const itemsPerPage = 20;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const CategoryNews = ({ category }) => {
 
       try {
         const data = await fetchNews(category);
-        
         setPosts(data.posts);
         setFilteredPosts(data.posts);
         setTotalItems(data.posts.length);

@@ -5,7 +5,7 @@ import Banner from "../Components/Banner";
 
 const Beranda = () => {
   return (
-    <section className="w-full flex flex-col space-y-32">
+    <section className="w-full min-h-screen flex flex-col space-y-20 lg:space-y-32">
       <Headline />
       <Populer />
       <Rekomendasi />

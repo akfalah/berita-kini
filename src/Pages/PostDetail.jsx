@@ -101,15 +101,15 @@ const PostDetail = () => {
   };
 
   return (
-    <main className="w-full flex flex-col space-y-12 animate-fade-in">
+    <main className="w-full flex flex-col space-y-8 lg:space-y-12 animate-fade-in">
       {isLoadingPost && <Loader />}
       <Breadcrumb category={post.category} />
 
-      <section className="w-full flex flex-col justify-center items-center space-y-36">
+      <section className="w-full flex flex-col justify-center items-center space-y-20 lg:space-y-36">
         {isLoadingPopuler && <Loader />}
 
         <div className="w-full flex space-x-[22px]">
-          <article className="flex flex-col space-y-[72px]">
+          <article className="flex flex-col space-y-12 lg:space-y-[72px]">
             <section className="flex flex-col space-y-9">
               <div className="flex flex-col space-y-6">
                 <h1 className="font-sora text-4xl font-semibold">
@@ -182,11 +182,11 @@ const PostDetail = () => {
             <section className="w-full flex flex-col space-y-4">
               <Header title={"Komentar"} />
 
-              <div className="p-6 flex space-x-4 border-b border-[#E0E0E0]">
+              <div className="py-3 lg:p-6 flex space-x-4 border-b border-[#E0E0E0]">
                 <img
                   src={ava1}
                   alt="ava-user"
-                  className="max-w-14 max-h-14 object-fill"
+                  className="max-w-10 lg:max-w-14 max-h-10 lg:max-h-14 object-fill"
                 />
 
                 <div className="w-full flex flex-col space-y-1.5">
@@ -210,7 +210,7 @@ const PostDetail = () => {
             </section>
           </article>
 
-          <section className="flex flex-col space-y-8">
+          <section className="hidden lg:flex flex-col space-y-8">
             <Header title="Berita Terpopuler" />
 
             <div className="w-max-[419px] flex flex-col justify-center items-center space-y-6">
