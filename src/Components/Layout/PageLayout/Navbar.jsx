@@ -21,10 +21,11 @@ const Navbar = () => {
   }, []);
 
   const menu = routes.map((route, index) => (
-    route.path === "/post/:title" ? null :
+    route.path === "/berita-kini/post/:title" ? null :
     <NavLink
       key={index}
       to={route.path}
+      end={route.path === "/berita-kini/"}
       className={({ isActive }) =>
         `${
           isActive
