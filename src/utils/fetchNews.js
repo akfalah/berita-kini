@@ -47,7 +47,7 @@ const fetchNews = async (category) => {
     
     return {
       category: selectedCategory.name,
-      posts: response.data.data.posts,
+      posts: response.data.data.posts.map(post => ({ ...post, category: selectedCategory.name })),
     };
   } catch (error) {
     console.error(`Error fetching news for category "${category}":`, error);

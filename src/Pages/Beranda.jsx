@@ -1,6 +1,7 @@
 import Headline from "../Components/Headline";
 import Populer from "../Components/Populer";
 import Rekomendasi from "../Components/Rekomendasi";
+import Banner from "../Components/Banner";
 
 const Beranda = () => {
   return (
@@ -8,6 +9,7 @@ const Beranda = () => {
       <Headline />
       <Populer />
       <Rekomendasi />
+      <Banner />
     </section>
   );
 };

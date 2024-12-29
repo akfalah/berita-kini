@@ -33,21 +33,22 @@ const Populer = () => {
   }, []);
 
   return (
-    <section className="flex flex-col space-y-8">
+    <section className="w-full flex flex-col space-y-8 animate-fade-in">
       <Header title="Berita Terpopuler" />
 
-      <div className="w-full flex justify-center items-center space-x-6">
+      <div className="flex flex-col items-center space-y-16">
         {isLoading && <Loader />}
 
-        {posts.map((post, index) => (
-          <Fragment key={index}>
-            <PopulerCard item={post} index={index} />
-
-            {index < posts.length - 1 && (
-              <div className="w-px h-[100px] bg-[#E0E0E0] flex-shrink-0" />
-            )}
-          </Fragment>
-        ))}
+        <div className="w-full flex justify-center items-center space-x-6">
+          {posts.map((post, index) => (
+            <Fragment key={index}>
+              <PopulerCard item={post} index={index} />
+              {index < posts.length - 1 && (
+                <div className="w-px h-[100px] bg-[#E0E0E0] flex-shrink-0" />
+              )}
+            </Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );

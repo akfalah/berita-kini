@@ -63,7 +63,7 @@ const Headline = () => {
   )[0];
 
   return (
-    <section className="w-full h-[492.43px] flex flex-col justify-center items-center space-y-11">
+    <section className="w-full h-[492.43px] flex flex-col justify-center items-center space-y-11 animate-fade-in">
       {isLoading && <Loader />}
 
       {currentItem && (
@@ -144,7 +144,7 @@ const Headline = () => {
             <img
               src={currentItem.thumbnail}
               alt="headline-thumbnail"
-              className="w-[637px] h-[417px] object-cover rounded-[20px]"
+              className="w-[637px] h-[417px] object-center object-cover rounded-[20px]"
             />
           </figure>
 

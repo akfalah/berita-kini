@@ -6,11 +6,11 @@ import formatDate from "../utils/formatDate";
 const Card = ({ item }) => {
   return (
     <Link to={`/berita-kini/post/${encodeURIComponent(item.title)}`}>
-      <figure className="w-[276px] flex flex-col space-y-4">
+      <figure className="w-[276px] flex flex-col space-y-4 animate-fade-in">
         <img
           src={item.thumbnail}
           alt="rekomendasi-thumbnail"
-          className="max-w-[276px] max-h-[198px] object-cover rounded-xl"
+          className="max-w-[276px] max-h-[198px] object-center object-cover rounded-xl"
         />
 
         <figcaption className="w-full flex flex-col space-y-3">
@@ -36,7 +36,12 @@ const Card = ({ item }) => {
 };
 
 Card.propTypes = {
-  item: PropTypes.objectOf(PropTypes.any).isRequired,
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    pubDate: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Card;

@@ -22,7 +22,7 @@ const NewsLayout = ({
   );
 
   return (
-    <section className="w-full flex flex-col space-y-11">
+    <section className="w-full flex flex-col space-y-11 animate-fade-in">
       <div className="flex justify-between items-center">
         <Header title={category} />
 
@@ -72,7 +72,7 @@ const NewsLayout = ({
         
         <div className="grid grid-cols-4 grid-rows-2 gap-16">
           {currentItems.map((item, index) => (
-            <Card key={index} item={item} category={category} />
+            <Card key={index} item={{ ...item, category: item.category }} />
           ))}
         </div>
 

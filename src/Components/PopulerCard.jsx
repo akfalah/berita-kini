@@ -11,7 +11,7 @@ const PopulerCard = ({ item, index }) => {
           <img
             src={item?.thumbnail}
             alt="populer-thumbnail"
-            className="max-w-[147px] h-[128px] object-cover rounded-xl"
+            className="max-w-[147px] h-[128px] object-center object-cover rounded-xl"
           />
 
           <div className="absolute -top-[18px] -left-[11px] w-[35px] h-[37px] flex justify-center items-center font-nunito-sans text-body-lg-bold text-white bg-dark-700 rounded-full">

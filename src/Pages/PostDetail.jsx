@@ -17,12 +17,12 @@ const PostDetail = () => {
   const [post, setPost] = useState(null);
   const [populer, setPopuler] = useState([]);
   const [comment, setComment] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingPost, setIsLoadingPost] = useState(true);
+  const [isLoadingPopuler, setIsLoadingPopuler] = useState(true);
 
   useEffect(() => {
-
     const getPost = async () => {
-      setIsLoading(true);
+      setIsLoadingPost(true);
       
       try {
         const categories = [
@@ -52,7 +52,7 @@ const PostDetail = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        setIsLoadingPost(false);
       }
     };
     
@@ -61,7 +61,7 @@ const PostDetail = () => {
   
   useEffect(() => {
     const getPopuler = async () => {
-      setIsLoading(true);
+      setIsLoadingPopuler(true);
 
       try {
         const category = "Terbaru";
@@ -75,14 +75,14 @@ const PostDetail = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        setIsLoadingPopuler(false);
       }
     };
 
     getPopuler();
   }, []);
 
-  if (isLoading) {
+  if (isLoadingPost) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
         <Loader />
@@ -101,11 +101,12 @@ const PostDetail = () => {
   };
 
   return (
-    <div className="w-full flex flex-col space-y-12">
+    <main className="w-full flex flex-col space-y-12 animate-fade-in">
+      {isLoadingPost && <Loader />}
       <Breadcrumb category={post.category} />
 
       <section className="w-full flex flex-col justify-center items-center space-y-36">
-        {isLoading && <Loader />}
+        {isLoadingPopuler && <Loader />}
 
         <div className="w-full flex space-x-[22px]">
           <article className="flex flex-col space-y-[72px]">
@@ -227,7 +228,7 @@ const PostDetail = () => {
 
         <Rekomendasi />
       </section>
-    </div>
+    </main>
   );
 };
 

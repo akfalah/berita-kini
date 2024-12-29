@@ -201,6 +201,15 @@ export default {
           50: "#E5E7EB",
         },
       },
+      animation: {
+        "fade-in": "fadeIn 1.5s ease-in",
+      },
+      keyframes: {
+        fadeIn: {
+          from: {opacity: 0},
+          to: {opacity: 1},
+        },
+      }
     },
   },
   plugins: [],
