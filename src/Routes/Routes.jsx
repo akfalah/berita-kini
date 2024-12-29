@@ -3,7 +3,7 @@ import CategoryNews from "../Pages/CategoryNews";
 import PostDetail from "../Pages/PostDetail";
 
 const routes = [
-  { name: "Beranda", path: "/", component: <Beranda /> },
+  { name: "Beranda", path: "/berita-kini", component: <Beranda /> },
   {
     name: "Nasional",
     path: "/nasional",
