@@ -155,7 +155,7 @@ const Footer = () => {
 
         <div className="flex flex-col space-y-4 text-body-md-medium text-white">
           {routes.map((route, index) => (
-            route.path === "/post/:title" ? null :
+            route.path === "/berita-kini/post/:title" ? null :
             <Link key={index} to={route.path}>
               {route.name}
             </Link>
