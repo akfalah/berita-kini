@@ -5,7 +5,7 @@ import formatDate from "../utils/formatDate";
 
 const PopulerCard = ({ item, index }) => {
   return (
-    <Link to={`/post/${encodeURIComponent(item.title)}`}>
+    <Link to={`/berita-kini/post/${encodeURIComponent(item.title)}`}>
       <figure className="w-[400px] p-4 flex space-x-4">
         <div className="relative">
           <img

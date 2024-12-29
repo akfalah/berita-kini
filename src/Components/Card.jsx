@@ -5,7 +5,7 @@ import formatDate from "../utils/formatDate";
 
 const Card = ({ item }) => {
   return (
-    <Link to={`/post/${encodeURIComponent(item.title)}`}>
+    <Link to={`/berita-kini/post/${encodeURIComponent(item.title)}`}>
       <figure className="w-[276px] flex flex-col space-y-4">
         <img
           src={item.thumbnail}

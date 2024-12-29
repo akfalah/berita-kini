@@ -117,7 +117,7 @@ const Headline = () => {
                 </span>
               </div>
 
-              <Link to={`/post/${encodeURIComponent(currentItem.title)}`}>
+              <Link to={`/berita-kini/post/${encodeURIComponent(currentItem.title)}`}>
                 <button className="flex items-center space-x-2 transition-all ease-out duration-300">
                   <span className="text-body-md-medium text-primary-500 hover:font-bold">
                     Baca Selengkapnya

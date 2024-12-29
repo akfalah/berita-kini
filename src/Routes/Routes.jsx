@@ -2,44 +2,46 @@ import Beranda from "../Pages/Beranda";
 import CategoryNews from "../Pages/CategoryNews";
 import PostDetail from "../Pages/PostDetail";
 
+const base = "/berita-kini";
+
 const routes = [
-  { name: "Beranda", path: "/berita-kini", component: <Beranda /> },
+  { name: "Beranda", path: `${base}/`, component: <Beranda /> },
   {
     name: "Nasional",
-    path: "/nasional",
+    path: `${base}/nasional`,
     component: <CategoryNews category="Nasional" />,
   },
   {
     name: "Internasional",
-    path: "/internasional",
+    path: `${base}/internasional`,
     component: <CategoryNews category="Internasional" />,
   },
   {
     name: "Ekonomi",
-    path: "/ekonomi",
+    path: `${base}/ekonomi`,
     component: <CategoryNews category="Ekonomi" />,
   },
   {
     name: "Olahraga",
-    path: "/olahraga",
+    path: `${base}/olahraga`,
     component: <CategoryNews category="Olahraga" />,
   },
   {
     name: "Teknologi",
-    path: "/teknologi",
+    path: `${base}/teknologi`,
     component: <CategoryNews category="Teknologi" />,
   },
   {
     name: "Hiburan",
-    path: "/hiburan",
+    path: `${base}/hiburan`,
     component: <CategoryNews category="Hiburan" />,
   },
   {
     name: "Gaya Hidup",
-    path: "/gaya-hidup",
+    path: `${base}/gaya-hidup`,
     component: <CategoryNews category="Gaya Hidup" />,
   },
-  { name: "Post Detail", path: "/post/:title", component: <PostDetail /> },
+  { name: "Post Detail", path: `${base}/post/:title`, component: <PostDetail /> },
 ];
 
 export default routes;
