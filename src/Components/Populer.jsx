@@ -39,7 +39,7 @@ const Populer = () => {
       <div className="flex flex-col items-center">
         {isLoading && <Loader />}
 
-        <div className="w-full flex flex-col lg:flex-row justify-center space-y-8 md:space-y-0 lg:space-x-6">
+        <div className="w-full flex flex-col lg:flex-row justify-center items-center space-y-8 md:space-y-0 lg:space-x-6">
           {posts.map((post, index) => (
             <Fragment key={index}>
               <PopulerCard item={post} index={index} />

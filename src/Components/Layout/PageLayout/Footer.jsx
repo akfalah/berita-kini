@@ -180,7 +180,7 @@ const Footer = () => {
           Berlangganan Berita Baru
         </span>
 
-        <div className="w-[339px] p-2 flex items-center space-x-2.5 bg-white rounded-lg">
+        <div className="w-full sm:w-[339px] p-2 flex items-center space-x-2.5 bg-white rounded-lg">
           <input
             type="email"
             name="email"
